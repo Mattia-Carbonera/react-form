@@ -21,6 +21,15 @@ function App() {
     setArticleList(newArticleList);
   };
 
+  // delete title handler
+  const deleteItemHandler = (articleDeleted) => {
+    const deletedArticles = articlesList.filter((article) => {
+      return article != articleDeleted;
+    });
+
+    setArticleList(deletedArticles);
+  };
+
   return (
     <>
       <div className="container">
@@ -39,7 +48,12 @@ function App() {
           <ul>
             {articlesList.map((article, index) => (
               <li key={index}>
-                <h2>{article.title}</h2>
+                <div className="title-container">
+                  <h2>{article.title}</h2>
+                  <button onClick={() => deleteItemHandler(article)}>
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

@@ -33,8 +33,28 @@ hr {
   margin: 2rem 0;
 }
 
-/* article cestion */
+/* article section */
 .articles-section ul li {
   list-style: none;
   padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.articles-section button {
+  cursor: pointer;
+
+  margin: 1rem;
+
+  background-color: transparent;
+  border: none;
+}
+
+.articles-section i {
+  color: red;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
