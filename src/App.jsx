@@ -6,11 +6,13 @@ function App() {
   const [articlesList, setArticleList] = useState(articles);
   const [inputTitle, setInputTitle] = useState("");
   const [inputAuthor, setInputAuthor] = useState("");
+  const [inputChange, setInputChange] = useState("");
 
   // click handler
   const handleInput = (e) => {
     setInputTitle(e.target.value);
     setInputAuthor(e.target.value);
+    setInputChange(e.target.value);
   };
 
   // submit handler
@@ -24,12 +26,14 @@ function App() {
   };
 
   // edit item handler
-  const editItem = (modifyArticle, index) => {
+  const editItem = (e, modifyArticle) => {
+    e.preventDefault();
+
     const modifyArticleList = [...articlesList];
 
     const newModifyArray = modifyArticleList.map((articleItem) =>
       articleItem == modifyArticle
-        ? { title: "ciao", author: "ciao" }
+        ? { title: inputChange, author }
         : articleItem
     );
 
@@ -72,17 +76,21 @@ function App() {
                     <span>{article.author}</span>
                   </div>
                   <button
-                    onClick={() => editItem(article, index)}
-                    className="button"
-                  >
-                    <i className="fa-solid fa-pen-to-square edit"></i>
-                  </button>
-                  <button
                     onClick={() => deleteItemHandler(article)}
                     className="button"
                   >
                     <i className="fa-solid fa-trash trash"></i>
                   </button>
+
+                  <form onSubmit={handleInput}>
+                    <button
+                      onClick={() => editItem(article, index)}
+                      className="button"
+                    >
+                      <i className="fa-solid fa-pen-to-square edit"></i>
+                    </button>
+                    <input type="text" placeholder="Modifica" />
+                  </form>
                 </div>
               </li>
             ))}
