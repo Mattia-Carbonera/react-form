@@ -26,18 +26,15 @@ function App() {
   };
 
   // edit item handler
-  const editItem = (e, modifyArticle) => {
-    e.preventDefault();
-
+  const editItem = (modifyArticle, index) => {
     const modifyArticleList = [...articlesList];
 
     const newModifyArray = modifyArticleList.map((articleItem) =>
       articleItem == modifyArticle
-        ? { title: inputChange, author }
+        ? { title: inputChange, author: modifyArticleList[index].author }
         : articleItem
     );
 
-    console.log(newModifyArray);
     setArticleList(newModifyArray);
   };
 
@@ -58,8 +55,18 @@ function App() {
         </div>
 
         <form onSubmit={articlesListHandler}>
-          <input type="text" onChange={handleInput} placeholder="Titolo" />
-          <input type="text" onChange={handleInput} placeholder="Autore" />
+          <input
+            type="text"
+            name="title"
+            onChange={handleInput}
+            placeholder="Titolo"
+          />
+          <input
+            type="text"
+            name="author"
+            onChange={handleInput}
+            placeholder="Autore"
+          />
 
           <button>Crea</button>
         </form>
@@ -82,15 +89,20 @@ function App() {
                     <i className="fa-solid fa-trash trash"></i>
                   </button>
 
-                  <form onSubmit={handleInput}>
+                  <div>
                     <button
                       onClick={() => editItem(article, index)}
                       className="button"
                     >
                       <i className="fa-solid fa-pen-to-square edit"></i>
                     </button>
-                    <input type="text" placeholder="Modifica" />
-                  </form>
+                    <input
+                      type="text"
+                      onChange={handleInput}
+                      name="modify"
+                      placeholder="Modifica"
+                    />
+                  </div>
                 </div>
               </li>
             ))}
