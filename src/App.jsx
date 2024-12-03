@@ -3,7 +3,12 @@ import "./css/App.css";
 import articles from "./db/articles";
 
 function App() {
-  const [articlesList, setArticleList] = useState(articles);
+  const prova = articles.filter((artic) => {
+    return artic.published == "yes";
+  });
+  console.log(prova);
+
+  const [articlesList, setArticleList] = useState(prova);
   const [inputTitle, setInputTitle] = useState("");
   const [inputAuthor, setInputAuthor] = useState("");
   const [inputChange, setInputChange] = useState("");
