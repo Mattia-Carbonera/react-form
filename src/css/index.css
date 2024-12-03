@@ -15,6 +15,7 @@ form > input {
   height: 20px;
   width: 200px;
   padding: 0.3rem;
+  margin: 0 0.5rem;
 }
 
 form > button {
@@ -40,20 +41,26 @@ hr {
   font-size: 1.2rem;
 }
 
-.articles-section button {
+.button {
   cursor: pointer;
 
-  margin: 1rem;
+  margin: 0.2rem;
 
   background-color: transparent;
   border: none;
 }
 
-.articles-section i {
-  color: red;
+.articles-section .edit {
+  color: green;
+  font-size: 1.2rem;
 }
 
-.title-container {
+.articles-section .trash {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.article-container {
   display: flex;
   justify-content: center;
   align-items: center;
