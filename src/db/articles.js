@@ -1,4 +1,4 @@
-export default articles = [
+const articles = [
   {
     title: "Title1",
   },
@@ -8,10 +8,6 @@ export default articles = [
   {
     title: "Title3",
   },
-  {
-    title: "Title4",
-  },
-  {
-    title: "Title5",
-  },
 ];
+
+export default articles;

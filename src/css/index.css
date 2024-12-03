@@ -5,6 +5,7 @@
   width: 1000px;
 }
 
+/* header */
 form > input {
   background-color: lightcyan;
   border: none;
@@ -17,6 +18,8 @@ form > input {
 }
 
 form > button {
+  cursor: pointer;
+
   display: block;
   margin: 2rem auto;
 
@@ -28,4 +31,10 @@ form > button {
 
 hr {
   margin: 2rem 0;
+}
+
+/* article cestion */
+.articles-section ul li {
+  list-style: none;
+  padding: 0.5rem;
 }
