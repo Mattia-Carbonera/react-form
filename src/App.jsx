@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./css/App.css";
+import articles from "./db/articles";
 
 function App() {
   return (
