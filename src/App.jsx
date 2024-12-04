@@ -24,6 +24,10 @@ function App() {
   const articlesListHandler = (e) => {
     e.preventDefault();
 
+    if (!inputTitle) {
+      return;
+    }
+
     const newArticleList = [...articlesList];
     newArticleList.push({ title: inputTitle, author: inputAuthor });
 
